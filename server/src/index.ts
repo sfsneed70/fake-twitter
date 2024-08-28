@@ -40,7 +40,3 @@ app.get("/api/health", (req, res) => {
     console.error("Failed to connect to the database", error);
   }
 })();
-
-// app.listen(PORT, () => {
-//   console.log(`Server is running at http://localhost:${PORT}`);
-// });
