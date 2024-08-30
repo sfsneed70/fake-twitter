@@ -1,31 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <form method="post" action="/api/users">
-      <div>
-        <label for="username">Username:</label>
-        <input type="text" id="username" placeholder="john_doe" name="username" required>
-      </div>
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" placeholder="john@email.com" name="email" required>
-      </div>
-      <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" placeholder="Enter Password" minlength="8" name="password" required>
-      </div>
-      <div>
-        <button type="submit">Signup</button>
-      </div>
 
-    </form>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fake Twitter</title>
+</head>
 
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<body>
+
+  <ul>
+    <li>
+      <a href="/">Home</a>
+    </li>
+    <li>
+      <a href="/users">Users</a>
+    </li>
+    <li>
+      <a href="/tweets">Tweets</a>
+    </li>
+  </ul>
+
+  <form id="user-form" method="post" action="/api/users" style="display:none">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" placeholder="john_doe" name="username" required />
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="john@email.com" name="email" required />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Enter Password" minlength="8" name="password" required />
+    </div>
+    <div>
+      <button type="submit">Signup</button>
+    </div>
+  </form>
+
+  <ul id="users-list"></ul>
+  
+  <form id="tweet-form" method="post" action="/api/tweets" style="display:none">
+    <input type="hidden" id="user_id" name="user_id" value=""/>
+    <div>
+      <label for="body">What's on your mind?</label><br>
+      <textarea name="body" id="body" placeholder="What's on your mind?" cols="80" rows="10" maxlength="140" required></textarea>
+    </div>
+    <div>
+      <button type="submit">Post Tweet</button>
+    </div>
+  </form>
+
+<ul id="tweets-list"></ul>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
